@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="Besin"
+            type="com.hasanakcay.besinlerkitabiapp.model.Besin" />
+        <variable
+            name="Listener"
+            type="com.hasanakcay.besinlerkitabiapp.adapter.BesinClickListener" />
+    </data>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:onClick="@{Listener::besinTiklandi}"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/besin_uuid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="@{String.valueOf(Besin.uuid)}">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_weight="2"
+        android:downloadImage="@{Besin.besinGorsel}"
+        android:layout_margin="3dp">
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/isim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Besin.besinIsim}"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/kalori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Besin.besinKalori}"
+            android:layout_margin="5dp"
+            android:textSize="18sp">
+
+        </TextView>
+
+    </LinearLayout>
+</LinearLayout>
+</layout>
